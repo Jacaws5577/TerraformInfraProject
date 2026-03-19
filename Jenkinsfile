@@ -5,10 +5,13 @@ pipeline {
         TF_WORKDIR = "Environments/${env.BRANCH_NAME}"
     }
 
+
     stages {
         stage('checkout') {
             steps {
-                git branch: "${env.BRANCH_NAME}", url: 'https://github.com/Jacaws5577/TerraformInfraPipeline.git'
+                git branch: "${env.BRANCH_NAME}"
+                credentialsId: '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'
+                url: 'https://github.com/Jacaws5577/TerraformInfraProject.git'
             }
         }
         stage('Terraform Init') {
